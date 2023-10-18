@@ -9,8 +9,9 @@ list_deck = list(deck)
 def trump():
     pass
 
-def hand(deck: dict):
-    hand = random.sample(list(deck.keys(), 6))
-
-    return hand
+def hand(deck: list):
+    random_elements = random.sample(range(len(deck)), 6)
+    hand = [deck[index] for index in random_elements]
+    deck = [element for index, element in enumerate(deck) if index not in hand] 
+    return hand, deck
 print(list_deck)
